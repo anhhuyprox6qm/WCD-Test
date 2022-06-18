@@ -23,7 +23,7 @@ public class Employee {
         this.position = position;
         this.department = department;
     }
-    public HashMap<String, String> getErrors(){
+    public int getErrors(){
         return error;
     }
     public void setErrors(HashMap<String, String> errors){

@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MySqlEmployeeModel implements EmployeeModel{
+    private List<Employee> listObj;
+
     @Override
     public boolean save(Employee obj){
         try {
