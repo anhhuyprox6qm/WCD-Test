@@ -5,149 +5,154 @@ import java.util.HashMap;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class Employee {
-    private int id;
-    private String fullName = "";
-    private String birthday;
-    private String address;
-    private String position;
-    private String department;
+    private int Id;
+    private String FullName;
+    private String Birthday;
+    private String Address;
+    private String Position;
+    private String Department;
 
     public Employee() {
     }
 
-    public Employee(int id, String fullName, String birthday, String address, String position, String department) {
-        this.id = id;
-        this.fullName = fullName;
-        this.birthday = birthday;
-        this.address = address;
-        this.position = position;
-        this.department = department;
+    public HashMap<String, String> getErrors() {
+        return errors;
     }
-    public int getErrors(){
-        return error;
-    }
-    public void setErrors(HashMap<String, String> errors){
+
+    public void setErrors(HashMap<String, String> errors) {
         this.errors = errors;
     }
-    private HashMap<String,String> errors = new HashMap<>();
 
-    public boolean isValid(){
+    private HashMap<String, String> errors = new HashMap<>();
+
+    public boolean isValid() {
         checkValid();
         return errors.size() == 0;
     }
-    private void checkValid(){
-        if (fullName == null || fullName.length() == 0){
-            errors.put("name","Please enter full name");
+    private void checkValid() {
+        if (FullName == null || FullName.length() == 0) {
+            errors.put("fullName", "Please enter full name");
         }
-        if (birthday == null || birthday.length() == 0){
-            errors.put("birthday","Please enter birthday");
-        }
-        if (address == null || address.length() == 0){
-            errors.put("birthday","Please enter address");
-        }
-        if (position == null || position.length() == 0){
-            errors.put("birthday","Please enter position");
-        }
-        if (department == null || department.length() == 0){
-            errors.put("birthday","Please enter department");
-        }
+    }
+
+    public Employee(int id, String fullName, String birthday, String address, String position, String department) {
+        Id = id;
+        FullName = fullName;
+        Birthday = birthday;
+        Address = address;
+        Position = position;
+        Department = department;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getFullName() {
-        return fullName;
+        return FullName;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        FullName = fullName;
     }
 
     public String getBirthday() {
-        return birthday;
+        return Birthday;
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday;
+        Birthday = birthday;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public String getPosition() {
-        return position;
+        return Position;
     }
 
     public void setPosition(String position) {
-        this.position = position;
+        Position = position;
     }
 
     public String getDepartment() {
-        return department;
+        return Department;
     }
 
     public void setDepartment(String department) {
-        this.department = department;
+        Department = department;
     }
-    public static final class EmployeeBuilder{
-        private int id;
-        private String fullName;
-        private String birthday;
-        private String address;
-        private String position;
-        private String department;
+
+    public static final class EmployeeBuilder {
+        private int Id;
+        private String FullName;
+        private String Birthday;
+        private String Address;
+        private String Position;
+        private String Department;
         private HashMap<String, String> errors = new HashMap<>();
 
-        public EmployeeBuilder() {
+        private EmployeeBuilder() {
         }
-        public static EmployeeBuilder aEmployee(){return new EmployeeBuilder();}
 
-        public EmployeeBuilder withId(int id){
-            this.id = id;
+        public static EmployeeBuilder anEmployee() {
+            return new EmployeeBuilder();
+        }
+
+        public EmployeeBuilder Id(int Id) {
+            this.Id = Id;
             return this;
         }
-        public EmployeeBuilder withFullName(String fullName){
-            this.fullName = fullName;
+
+        public EmployeeBuilder FullName(String FullName) {
+            this.FullName = FullName;
             return this;
         }
-        public EmployeeBuilder withBirthday(String birthday){
-            this.address = address;
+
+        public EmployeeBuilder Birthday(String Birthday) {
+            this.Birthday = Birthday;
             return this;
         }
-        public EmployeeBuilder withAddress(String address){
-            this.address = address;
+
+        public EmployeeBuilder Address(String Address) {
+            this.Address = Address;
             return this;
         }
-        public EmployeeBuilder withPosition(String position){
-            this.position = position;
+
+        public EmployeeBuilder Position(String Position) {
+            this.Position = Position;
             return this;
         }
-        public EmployeeBuilder withDepartment(String department){
-            this.department = department;
+
+        public EmployeeBuilder Department(String Department) {
+            this.Department = Department;
             return this;
         }
-        public Employee build(){
+
+        public EmployeeBuilder errors(HashMap<String, String> errors) {
+            this.errors = errors;
+            return this;
+        }
+
+        public Employee build() {
             Employee employee = new Employee();
-            employee.setId(id);
-            employee.setFullName(fullName);
-            employee.setBirthday(birthday);
-            employee.setAddress(address);
-            employee.setPosition(position);
-            employee.setDepartment(department);
+            employee.setId(Id);
+            employee.setFullName(FullName);
+            employee.setBirthday(Birthday);
+            employee.setAddress(Address);
+            employee.setPosition(Position);
+            employee.setDepartment(Department);
+            employee.setErrors(errors);
             return employee;
         }
-
-
     }
 }

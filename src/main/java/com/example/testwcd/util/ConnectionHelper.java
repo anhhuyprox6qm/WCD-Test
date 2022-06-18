@@ -16,7 +16,7 @@ public class ConnectionHelper {
             if (connection == null || connection.isClosed()) {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-                System.out.println("Connection success!");
+                System.out.println("Connected :" + connection);
             }
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
