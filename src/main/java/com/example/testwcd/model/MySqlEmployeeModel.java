@@ -2,6 +2,7 @@ package com.example.testwcd.model;
 
 import com.example.testwcd.constant.SqlConstant;
 import com.example.testwcd.entity.Employee;
+import com.example.testwcd.util.ConnectionHelper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

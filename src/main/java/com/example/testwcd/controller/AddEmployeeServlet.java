@@ -2,6 +2,7 @@ package com.example.testwcd.controller;
 
 import com.example.testwcd.entity.Employee;
 import com.example.testwcd.model.EmployeeModel;
+import com.example.testwcd.model.MySqlEmployeeModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class AddEmployeeServlet  extends HttpServlet {
     private EmployeeModel employeeModel;
-    public AddEmployeeServlet(){ this.employeeModel=new MySqlPhoneModel();}
+    public AddEmployeeServlet(){ this.employeeModel=new MySqlEmployeeModel();}
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.getRequestDispatcher("/employee.jsp").forward(req, resp);
